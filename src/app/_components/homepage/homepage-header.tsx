@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, ChevronDown, BookOpen, Users, Wrench, GraduationCap, Building2, Handshake, Globe, Award } from 'lucide-react';
+import { BookDemoModal } from '../book-demo-modal';
 
 const productsMenu = [
   {
@@ -79,6 +80,7 @@ const partnersMenu = [
 export function HomepageHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<'products' | 'partners' | null>(null);
+  const [demoOpen, setDemoOpen] = useState(false);
 
   const toggleDropdown = (dropdown: 'products' | 'partners') => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
@@ -117,9 +119,12 @@ export function HomepageHeader() {
               Partners
               <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'partners' ? 'rotate-180' : ''}`} />
             </button>
-            <Link href="/book-a-demo" className="text-gray-400 hover:text-white text-sm font-light transition-colors">
+            <button
+              onClick={() => { closeDropdown(); setDemoOpen(true); }}
+              className="text-gray-400 hover:text-white text-sm font-light transition-colors"
+            >
               Book a demo
-            </Link>
+            </button>
           </div>
 
           {/* Desktop Auth */}
@@ -227,17 +232,17 @@ export function HomepageHeader() {
               ))}
             </div>
             <div className="pt-4 border-t border-white/10">
-              <Link
-                href="/book-a-demo"
+              <button
                 className="text-gray-400 hover:text-white text-sm font-light transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => { setMobileMenuOpen(false); setDemoOpen(true); }}
               >
                 Book a demo
-              </Link>
+              </button>
             </div>
           </div>
         </div>
       )}
+      <BookDemoModal isOpen={demoOpen} onClose={() => setDemoOpen(false)} />
     </header>
   );
 }

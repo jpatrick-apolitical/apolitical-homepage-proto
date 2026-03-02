@@ -1,11 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 
 import { HomepageHeader } from './homepage-header';
 import { ImageCarousel } from './image-carousel';
 import { Footer } from '../footer/footer';
+import { BookDemoModal } from '../book-demo-modal';
 
 interface HomepageProps {
   variant?: 'default' | 'subpage';
@@ -31,6 +33,8 @@ const logos = [
 ];
 
 export function Homepage({ variant = 'default', title }: HomepageProps) {
+  const [demoOpen, setDemoOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#0A0A0B] text-white">
       <HomepageHeader />
@@ -194,13 +198,13 @@ export function Homepage({ variant = 'default', title }: HomepageProps) {
         </section>
       )}
 
-      {/* Features Section - Image Left, Text Right */}
+      {/* Section 1 - Futura - Image Left, Text Right */}
       <section id="features" className="px-6 md:px-8 lg:px-12 py-16 md:py-24 border-t border-white/5">
         <div className="max-w-[980px] mx-auto">
           <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Title - mobile only, shown first */}
             <h2 className="md:hidden text-2xl font-medium leading-tight order-1">
-              Futura closes the gap between ambition and adoption
+              Transform your institution with Futura
             </h2>
             
             {/* Image placeholder - second on mobile, left on desktop */}
@@ -215,42 +219,40 @@ export function Homepage({ variant = 'default', title }: HomepageProps) {
             {/* Text block - third on mobile, right on desktop */}
             <div className="order-3 md:order-2">
               <h2 className="hidden md:block text-2xl md:text-3xl lg:text-4xl font-medium leading-tight mb-4">
-                Futura closes the gap
-                <br />
-                between ambition and adoption
+                Transform your institution with Futura
               </h2>
               <p className="text-gray-400 font-light text-base md:text-lg mb-4">
-                Transform your institution with Futura, Apolitical&apos;s flagship platform designed to close the gap between AI ambition and adoption. Futura helps governments to understand where AI will create value, what to prioritise and how to build new capabilities at workforce scale.
+                Apolitical&apos;s flagship AI platform helps governments close the gap between ambition and adoption. Built on one of the world&apos;s largest datasets on how public servants actually work, Futura pinpoints where AI will deliver the greatest impact and builds the capabilities to get there.
               </p>
-              <Link
-                href="#"
+              <button
+                onClick={() => setDemoOpen(true)}
                 className="inline-flex items-center gap-1 text-white hover:text-gray-300 text-sm font-medium transition-colors"
               >
-                Learn more
+                Book a demo
                 <ChevronRight className="w-4 h-4" />
-              </Link>
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Communities Section */}
+      {/* Section 2 - Academies */}
       <section className="px-6 md:px-8 lg:px-12 py-16 md:py-24 border-t border-white/5">
         <div className="max-w-[980px] mx-auto">
           {/* Mobile: Title, Carousel, Text */}
           <div className="flex flex-col md:hidden">
             <h2 className="text-2xl font-medium leading-tight mb-6">
-              Communities close the gap between ambition and adoption
+              Branded Academies that upskill at scale
             </h2>
             <div className="mb-6">
               <ImageCarousel />
             </div>
             <div className="mb-8">
               <p className="text-gray-400 font-light text-base mb-4">
-                Futura helps leaders connect strategy, capability, and delivery across the organisation. Apolitical&apos;s global data sets ground Futura in a clear understanding of people&apos;s roles, their priorities and how they really do their jobs.
+                Launch curated, co-branded learning programmes designed around your organisation&apos;s priorities. Each Academy combines a bespoke landing page, tailored certificate track, and focused curriculum your audience can complete at their own pace.
               </p>
               <Link
-                href="#"
+                href="/academies"
                 className="inline-flex items-center gap-1 text-white hover:text-gray-300 text-sm font-medium transition-colors"
               >
                 Learn more
@@ -262,14 +264,14 @@ export function Homepage({ variant = 'default', title }: HomepageProps) {
           {/* Desktop layout */}
           <div className="hidden md:grid md:grid-cols-2 gap-8 md:gap-16 items-start mb-16">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium leading-tight">
-              Communities close the gap between ambition and adoption
+              Branded Academies that upskill at scale
             </h2>
             <div>
               <p className="text-gray-400 font-light text-base md:text-lg mb-4">
-                Futura helps leaders connect strategy, capability, and delivery across the organisation. Apolitical&apos;s global data sets ground Futura in a clear understanding of people&apos;s roles, their priorities and how they really do their jobs.
+                Launch curated, co-branded learning programmes designed around your organisation&apos;s priorities. Each Academy combines a bespoke landing page, tailored certificate track, and focused curriculum your audience can complete at their own pace.
               </p>
               <Link
-                href="#"
+                href="/academies"
                 className="inline-flex items-center gap-1 text-white hover:text-gray-300 text-sm font-medium transition-colors"
               >
                 Learn more
@@ -302,13 +304,13 @@ export function Homepage({ variant = 'default', title }: HomepageProps) {
         </div>
       </section>
 
-      {/* Tools Section - Text Left, Image Right */}
+      {/* Section 3 - Platform breadth - Text Left, Image Right */}
       <section className="px-6 md:px-8 lg:px-12 pt-16 md:pt-24 pb-32 md:pb-48 border-t border-white/5">
         <div className="max-w-[980px] mx-auto">
           <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Title - mobile only, shown first */}
             <h2 className="md:hidden text-2xl font-medium leading-tight order-1">
-              Tools close the gap between ambition and adoption
+              AI-powered tools, community, and insight for the public sector
             </h2>
             
             {/* Image placeholder - second on mobile, right on desktop */}
@@ -323,24 +325,19 @@ export function Homepage({ variant = 'default', title }: HomepageProps) {
             {/* Text block - third on mobile, left on desktop */}
             <div className="order-3 md:order-1">
               <h2 className="hidden md:block text-2xl md:text-3xl lg:text-4xl font-medium leading-tight mb-4">
-                Tools close the gap between ambition and adoption
+                AI-powered tools, community, and insight for the public sector
               </h2>
-              <p className="text-gray-400 font-light text-base md:text-lg mb-4">
-                Futura is built around multiple pillars of transformation. AI capability is a central pillar of Futura, alongside other key areas of public sector capability that together deliver transformation across teams, systems, and whole workforces.
+              <p className="text-gray-400 font-light text-base md:text-lg">
+                From purpose-built tools that fix real government pain points to a global community of 500,000+ public servants sharing what works — Apolitical combines cutting-edge AI with deep public sector expertise to drive measurable impact.
               </p>
-              <Link
-                href="#"
-                className="inline-flex items-center gap-1 text-white hover:text-gray-300 text-sm font-medium transition-colors"
-              >
-                Learn more
-                <ChevronRight className="w-4 h-4" />
-              </Link>
             </div>
           </div>
         </div>
       </section>
 
       <Footer />
+
+      <BookDemoModal isOpen={demoOpen} onClose={() => setDemoOpen(false)} />
     </div>
   );
 }
