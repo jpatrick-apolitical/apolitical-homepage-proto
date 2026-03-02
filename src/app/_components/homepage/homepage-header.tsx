@@ -35,6 +35,12 @@ const productsMenu = [
     description: 'Guides, case studies, and research.',
     href: '/insights',
   },
+  {
+    icon: Award,
+    title: 'Academies',
+    description: 'Branded learning programmes built around your goals.',
+    href: '/academies',
+  },
 ];
 
 const partnersMenu = [
