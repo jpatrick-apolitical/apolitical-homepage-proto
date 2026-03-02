@@ -41,7 +41,7 @@ export default function InsightsPage() {
           <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Title - mobile only, shown first */}
             <h2 className="md:hidden text-2xl font-medium leading-tight order-1">
-              Guides, case studies and research
+              Comparative insight across governments worldwide
             </h2>
             
             {/* Image placeholder - second on mobile, left on desktop */}
@@ -56,10 +56,10 @@ export default function InsightsPage() {
             {/* Text block - third on mobile, right on desktop */}
             <div className="order-3 md:order-2">
               <h2 className="hidden md:block text-2xl md:text-3xl lg:text-4xl font-medium leading-tight mb-4">
-                Guides, case studies and research
+                Comparative insight across governments worldwide
               </h2>
               <p className="text-gray-400 font-light text-base md:text-lg">
-                Curated insight on how governments worldwide are tackling today&apos;s most pressing challenges.
+                Guides, case studies and research highlighting how institutions are responding to today&apos;s most pressing challenges.
               </p>
             </div>
           </div>

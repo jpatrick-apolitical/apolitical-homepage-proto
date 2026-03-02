@@ -72,23 +72,23 @@ export default function TransformationPage() {
           {/* Mobile: Title, Carousel, Text */}
           <div className="flex flex-col md:hidden">
             <h2 className="text-2xl font-medium leading-tight mb-6">
-              Futura helps leaders connect strategy, capability, and delivery
+              Futura helps leaders connect strategy, capability and delivery across the organisation
             </h2>
             <div className="mb-6">
               <ImageCarousel />
             </div>
             <p className="text-gray-400 font-light text-base mb-8">
-              Across the organisation. Apolitical&apos;s global data sets ground Futura in a clear understanding of people&apos;s roles, their priorities and how they really do their jobs.
+              Built on one of the world&apos;s largest datasets on how public servants actually work, it pinpoints where AI will deliver the greatest impact.
             </p>
           </div>
           
           {/* Desktop layout */}
           <div className="hidden md:grid md:grid-cols-2 gap-8 md:gap-16 items-start mb-16">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium leading-tight">
-              Futura helps leaders connect strategy, capability, and delivery
+              Futura helps leaders connect strategy, capability and delivery across the organisation
             </h2>
             <p className="text-gray-400 font-light text-base md:text-lg">
-              Across the organisation. Apolitical&apos;s global data sets ground Futura in a clear understanding of people&apos;s roles, their priorities and how they really do their jobs.
+              Built on one of the world&apos;s largest datasets on how public servants actually work, it pinpoints where AI will deliver the greatest impact.
             </p>
           </div>
 
